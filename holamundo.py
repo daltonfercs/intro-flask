@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,6 +19,5 @@ def lala(post_id):
 
 @app.route('/lele')
 def lele():
-    return 'lele....'
-
+    return render_template('test.html')
 
