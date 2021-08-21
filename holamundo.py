@@ -1,12 +1,20 @@
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return 'Hola Mundo..!'
 
-@app.route('/lala')
-def lala():
+#metodos http    
+
+@app.route('/lala/<post_id>', methods=['GET', 'POST'])
+def lala(post_id):
+    if request.method == 'GET':
+        return  'el id es ... ' + post_id
+    else:
+        return  'el id es no get ' + post_id
+
+
     return 'lala....'
 
 @app.route('/lele')
